@@ -19,6 +19,15 @@ body {
     height: 100%;
 }
 
+h1 {
+    background-color: indigo;
+    color: goldenrod;
+    font-size: 40px;
+    padding: 20px;
+}
+
+
+
 body.correct {
     background-image: url("./images/potter-portraits.jpg");
 }
@@ -63,4 +72,30 @@ body.wrong {
 
 .btn.wrong {
     color: red
+}
+
+.start-btn, .next-btn {
+    font-size: 25px;
+    padding: 10px 20px;
+    margin: 20px auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.intro {
+    text-align: center;
+    margin: 20px;
+    background-color: rgb(79, 192, 79);
+    color: indigo;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
 }
