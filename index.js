@@ -9,7 +9,7 @@ let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
-    setNextQuestion()
+    getNextQuestion()
 })
 
 function startQuiz() {
@@ -21,7 +21,7 @@ function startQuiz() {
 }
 
 function getNextQuestion() {
-    resetQuiz
+    resetQuiz()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
