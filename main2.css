@@ -31,18 +31,8 @@ h1 {
     font-size: 40px;
     padding: 20px;
 }
+/* 
 
-
-
-body.correct {
-    background-image: url("./images/HP-celebrate.gif");
-    background-repeat: repeat;
-}
-
-body.wrong {
-    background-image: url("./images/voldemort-spell.gif");
-    background-repeat: repeat;
-}
 .container {
     width: 800px;
     height: 300px;
@@ -56,12 +46,7 @@ body.wrong {
     margin-top: 40px;
 }
 
-.btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
-}
+
 
 .btn {
     border: 2px solid white;
@@ -85,7 +70,7 @@ body.wrong {
 
 
 
-.controls {
+.score {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,4 +88,4 @@ body.wrong {
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
-}
+} */
