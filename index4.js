@@ -1,12 +1,50 @@
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton ) {
 
-const startButton = document.getElementById('start-btn');
-const questionBox = document.getElementById('question-box');
-const questionsSection = document.getElementById('question');
-const answersAll = document.getElementsByClassName("anser-buttons");
-const answerA = document.getElementById('btnA');
-const answerB = document.getElementById('btnB');
-const answerC = document.getElementById('btnC');
-const answerD = document.getElementById('btnD');
+    function showQuestions(questions, quizContainer) {
+        let output = [];
+        let answers;
+        for(let i=0; i<questions.length; i++){
+            answers = [];
+            for(letter in questions[i].answers){
+                answers.push(
+                    '<label>'
+                        + '<input type="radio" name="question'+ i +'" value="'+ letter +'">'
+                        + letter + ': '
+                        + questions[i].answers[letter]
+                    + '</label>'
+                );
+            }
+            output.push(
+                '<div class="question">' +questions[i].question + '</div>'
+                + '<div class="answers">' + answers.join('') + '</div>'
+            );
+        }
+        quizContainer.innerHTML = output.join('');
+    }
+
+    function showResults(questions, quizContainer, resultsContainer){
+        let answerContainers = quizContainer.querySelectorAll('.answers');
+        let userAnswer = '';
+        let numCorrect = 0;
+        for(let i=0; i<questions.length; i++) {
+            userAnswer = (answerContainers[i].querySelector('input[name=question'+ i +']:checked')||{}).value;
+            if(userAnswer===questions[i].correctAnswer) {
+                numCorrect++;
+                answerContainers[i].style.color = 'lightgreen';
+            }
+            else {
+                answerContainers[i].style.color = 'red';
+            }
+        }
+        resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
+    }
+
+    showQuestions(questions,quizContainer);
+
+    submitButton.onclick = function(){
+        showResults(questions, quizContainer, resultsContainer);
+    }
+}
 
 let questions = [
     {
@@ -90,51 +128,3 @@ let questions = [
         correctAnswer: 'B'
     }
 ]
-
-//Create index to keep track of what last question is//
-let finalQuestion = questions.length - 1;
-//Set index for current question so can keep track of answer index//
-let currentQuestion = 0
-
-
-//Create function to bring up questions and answers and replace text with info from question array//
-function displayQuestion() {
-    let i = questions[currentQuestion];
-    question.innerHTML = i.question;
-    answerA.innerHTML = i.answerA;
-    answerB.innerHTML = i.answerB;
-    answerC.innerHTML = i.answerC;
-    answerD.innerHTML = i.answerD;
-    console.log();
-}
-
-//Create function to run quiz//
-
-function startQuiz () {
-    startButton.style.display = 'none';
-    displayQuestion();
-    questionBox.style.display = "block";
-    quizLoop();
-    checkAnswer();
-}
-
-startQuiz();
-
-//Loop through questions//
-function quizLoop () {
-    for(let i = 0; i <= finalQuestion; i++);
-}
-
-
-//check for correct answer//
-function checkAnswer(answer){
-    if(answer == questions[currentQuestion].correctAnswer) {
-        correctColor();
-    } else {
-        wrongColor();
-    }
-}
-
-
-startButton.addEventListener('click,')
-
