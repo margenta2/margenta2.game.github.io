@@ -31,7 +31,7 @@ h1 {
     font-size: 40px;
     padding: 20px;
 }
-/* 
+
 
 .container {
     width: 800px;
@@ -76,9 +76,6 @@ h1 {
     align-items: center;
 }
 
-.hide {
-    display: none;
-}
 
 .intro {
     text-align: center;
@@ -88,4 +85,4 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
-} */
+}
